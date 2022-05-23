@@ -20,6 +20,7 @@ import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
 import org.bukkit.craftbukkit.v1_18_R2.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -632,18 +633,15 @@ public class DFUtilities {
 
     public static void SetItems(Player p, HashMap<Integer, String> items) throws IOException, CommandSyntaxException{
             items.forEach((slot, item) -> {
-                try {
-                    SetItemInSlot(p, slot, item);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (CommandSyntaxException e) {
-                    e.printStackTrace();
-                }
-        });
-    }
-
-    public static void SetItemInSlot(Player p, int slot, String item) throws IOException, CommandSyntaxException {
-        p.getInventory().setItem(slot, parseItemNBT(item));
+                    try {
+                        p.getInventory().setItem(slot, parseItemNBT(item));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (CommandSyntaxException e) {
+                        e.printStackTrace();
+                    }
+            });
     }
 }
+
 
