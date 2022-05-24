@@ -35,6 +35,7 @@ import java.util.TreeMap;
 public class DFUtilities {
     /*
         ** Big thanks to Infernity for helping with sounds **
+        ** Big thanks to shermy_the_cat for helping with sounds **
     */
     static HashMap<String, String> soundMap = new HashMap<String, String>(){{
             put("Pling", "block.note_block.pling");
@@ -520,6 +521,86 @@ public class DFUtilities {
             put("Underwater Ambience Additions (Ultra Rare)", "ambient.underwater.loop.additions.ultra_rare");
             put("Weather Rain", "weather.rain");
             put("Weather Rain Above", "weather.rain.above");
+            // End of Ambience, Item Sounds below
+            put("Player Attack (Critical)", "entity.player.attack.crit");
+            put("Player Attack (Knockback)", "entity.player.attack.knockback");
+            put("Player Attack (No Damage)", "entity.player.attack.nodamage");
+            put("Player Attack (Strong)", "entity.player.attack.strong");
+            put("Player Attack (Sweep", "entity.player.attack.sweep");
+            put("Player Attack (Weak)", "entity.player.attack.weak");
+            put("Shield Block", "item.shield.block");
+            put("Shield Break", "item.shield.break");
+            put("Crossbow Hit", "item.crossbow.hit");
+            put("Crossbow Loading (End)", "item.crossbow.loading_end");
+            put("Crossbow Loading (Middle)", "item.crossbow.loading_middle");
+            put("Crossbow Loading (Start)", "item.crossbow.loading_start");
+            put("Crossbow Quick Charge (I)", "item.crossbow.quick_charge_1");
+            put("Crossbow Quick Charge (II)", "item.crossbow.quick_charge_2");
+            put("Crossbow Quick Charge (III)", "item.crossbow.quick_charge_3");
+            put("Crossbow Shoot", "item.crossbow.shoot");
+            put("Horse Equip Saddle", "entity.horse.saddle");
+            put("Horse Equip Armor", "entity.horse.armor");
+            put("Armor Equip", "entity.horse.armor");
+            put("Armor Equip (Elytra)", "item.armor.equip_elytra");
+            put("Armor Equip (Leather)", "item.armor.equip_leather");
+            put("Armor Equip (Chain)", "item.armor.equip_chain");
+            put("Armor Equip (Iron)", "item.armor.equip_iron");
+            put("Armor Equip (Gold)", "item.armor.equip_gold");
+            put("Armor Equip (Diamond)", "item.armor.equip_diamond");
+            put("Armor Equip (Netherite)", "item.armor.equip_netherite");
+            put("Armor Equip (Turtle)", "item.armor.equip_turtle");
+            put("Elytra Flying", "item.elytra.flying");
+            put("Thorns Hit", "enchant.thorns.hit");
+            put("Trident Throw", "item.trident.throw");
+            put("Trident Hit", "item.trident.hit");
+            put("Trident Hit Ground", "item.trident.hit_ground");
+            put("Trident Return", "item.trident.return");
+            put("Trident Riptide (I)", "item.trident.riptide_1");
+            put("Trident Riptide (II)", "item.trident.riptide_2");
+            put("Trident Riptide (III)", "item.trident.riptide_3");
+            put("Trident Thunder", "item.trident.thunder");
+            put("Fire Charge Use", "item.firecharge.use");
+            put("Flint and Steel Use", "item.flintandsteel.use");
+            put("Axe Scrape", "scrape");
+            put("Axe Strip", "item.axe.strip");
+            put("Wax Off", "item.axe.wax_off");
+            put("Hoe Till", "item.hoe.till");
+            put("Shovel Flatten", "item.shovel.flatten");
+            put("Fishing Retrieve", "entity.fishing_bobber.retrieve");
+            put("Fishing Splash", "entity.fishing_bobber.splash");
+            put("Fishing Throw", "entity.fishing_bobber.throw");
+            put("Bottle Empty", "item.bottle.empty");
+            put("Bottle Fill", "item.bottle.fill");
+            put("Dragon Breath Fill", "item.bottle.fill_dragonbreath");
+            put("Honey Bottle Drink", "item.honey_bottle.drink");
+            put("Water Bucket Empty", "item.bucket.empty");
+            put("Water Bucket Fill", "item.bucket.fill");
+            put("Axolotl Bucket Empty", "item.bucket.empty_fish");
+            put("Axolotl Bucket Fill", "subtitles.item.bucket.fill_axolotl");
+            put("Fish Bucket Empty", "item.bucket.empty_fish");
+            put("Fish Bucket Fill", "item.bucket.fill_fish");
+            put("Lava Bucket Empty", "item.bucket.empty_lava");
+            put("Lava Bucket Fill", "item.bucket.fill_lava");
+            put("Powder Bucket Empty", "item.bucket.empty_powder_snow");
+            put("Powder Bucket Fill", "item.bucket.fill_powder_snow");
+            put("Drink", "entity.generic.drink");
+            put("Eat", "entity.generic.eat");
+            put("Item Break", "entity.item.break");
+            put("Item Pickup", "entity.item.pickup");
+            put("Book Page Turn", "item.book.page_turn");
+            put("Book Put in Lectern", "item.book.put");
+            put("Bone Meal Use", "item.bone_meal.use");
+            put("Chorus Fruit Teleport", "item.chorus_fruit.teleport");
+            put("Dye Use", "item.dye.use");
+            put("Ink Sac Use", "item.ink_sac.use");
+            put("Glow Ink Sac Use", "item.minecraft.glow_ink_sac");
+            put("Spyglass Use", "item.minecraft.spyglass");
+            put("Spyglass Stop Using", "item.spyglass.stop_using");
+            put("Bundle Drop Contents", "item.bundle.drop_contents");
+            put("Bundle Remove One", "item.bundle.remove_one");
+            put("Bundle Item Insert", "item.bundle.insert");
+            put("Totem Use", "item.totem.use");
+            put("Wax Copper", "item.honeycomb.wax_on");
         }};
 
     public static TreeMap<Integer, BossBar> setBossBar(Player barPlayer, String title, Integer id, double barHealth, BarColor color, BarStyle style, BarFlag[] flags, TreeMap<String, TreeMap<Integer, BossBar>> handler){
@@ -641,6 +722,37 @@ public class DFUtilities {
                         e.printStackTrace();
                     }
             });
+    }
+
+    public static void ReplaceItems(Player p, String[] replaceablesRaw, ItemStack replaceItem, short amount) throws IOException, CommandSyntaxException {
+        ItemStack[] items = p.getInventory().getContents();
+        ItemStack[] replaceables = new ItemStack[replaceablesRaw.length];
+        ItemStack removalItem;
+
+        for(int i = 0; i < replaceablesRaw.length; i++){
+            replaceables[i] = parseItemNBT(replaceablesRaw[i]);
+        }
+
+        short itemsReplaced = 0;
+        for(int i = 0; i < items.length; i++){
+            for(int k = 0; k < replaceables.length; k++){
+                if(items[i].isSimilar(replaceables[k])){
+                    byte stack = (byte) Math.floor(items[i].getAmount()/replaceables[k].getAmount());
+                    if(stack > (amount - itemsReplaced)) stack = (byte) (amount - itemsReplaced);
+                    if(stack > 0){
+                        itemsReplaced += stack;
+                        replaceItem.setAmount(replaceItem.getAmount() * stack);
+                        removalItem = items[i].clone();
+                        removalItem.setAmount(replaceables[k].getAmount() * stack);
+                        p.getInventory().addItem(replaceItem);
+                        p.getInventory().removeItem(removalItem);
+                        if(itemsReplaced >= amount) return;
+                    }
+                    break;
+                }
+            }
+
+        }
     }
 }
 
