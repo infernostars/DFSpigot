@@ -2,18 +2,77 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
+  padding: 0;
   display:flex;
   justify-content:center;
   align-items:center;
   flex-direction:column;
+  overflow-x: hidden;
+  background-color: #0e0726;
 }
 
-
-#code{
+textarea{
+  display: block;
   resize: none;
-  overflow: auto;
   border: none;
   outline: none;
-  width: 80vw;
+  width: 70vw;
   min-height: 600px;
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+.desktopBanner{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 620px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("images/desktopBanner.png");
+  z-index: -9999;
+}
+
+.wave{
+  width: 100vw;
+  height: 350px;
+  position: absolute;
+  top: 325px;
+  left: 0px;
+  z-index: -9998;
+}
+
+ul{
+  list-style-type: none;
+  margin-top: 650px;
+}
+
+li{
+  float: left;
+  margin-right: 100px;
+}
+
+h1{
+  font-family: Outfit, 'sans-serif';
+  color: #d9d9d9;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+p{
+  font-family: Poppins, 'sans-serif';
+  color: #bdbdbd;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.gridImage{
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: auto;
 }

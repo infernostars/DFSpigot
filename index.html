@@ -7,10 +7,44 @@
   <title>DF Spigotifier</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link rel="icon" type="image/x-icon" href="images/spigotDFLogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Readex+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <textarea style="width: 100%; height: 100%"id="code" spellcheck="false">...</textarea>
+  <div class="desktop desktopBanner">
+    <img src="images/enderchest.webp" style="margin-top: 50px;">
+    <img src="images/desktopLogo.png" style="margin-top: -200px;width:600px;height:250px;">
+  </div>
+
+  <img src="images/wave.svg" class="wave">
+
+  <ul class="instructionGrid">
+    <li>
+      <div>
+        <img src="images/repeatingCommandBlock.webp" class="gridImage">
+        <h1>Input Your Template Data</h1>
+        <p>Copy the template data using<br>/item nbt, or run /command<br>while holding the template.<br>(Requires CodeUtilities)</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <img src="images/anvil.webp" class="gridImage">
+        <h1>Import The Utility Class</h1>
+        <p>Download the Utility Class we've<br>provided, and follow the packaging<br>instructions on the download page.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <img src="images/endFrame.webp" class="gridImage">
+        <h1>Compile Your Plugin</h1>
+        <p>Compile your plugin, and<br>use it on your minecraft server!</p>
+      </div>
+    </li>
+  </ul>
+
+  <textarea id="code" spellcheck="false">...</textarea>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako_inflate.js"></script>
   <script src="script.js"></script>

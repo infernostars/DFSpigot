@@ -1,7 +1,7 @@
 function decodeTemplate(data) {
   // Permanently borrowed from Ottelino
   compressData = atob(data);
-  compressData = compressData.split("").map(function (e) {
+  compressData = compressData.split("").map(function(e) {
     return e.charCodeAt(0);
   });
   binData = new Uint8Array(compressData);
@@ -9,7 +9,7 @@ function decodeTemplate(data) {
   return JSON.parse(String.fromCharCode.apply(null, new Uint16Array(data)));
 }
 
-var decodedJson = decodeTemplate("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");
+var decodedJson = decodeTemplate("H4sIAAAAAAAA/+2VUWvbMBDHv4rQSzoQowkbZXpc0naDrYyyPdUhyNbF1mpLniS3CcafbG/7ZDvZTWaTtqwvxQ95su+4O/3+svxXTePcJLeO8puaKkl5F1P28OQU7kB7jIVNsQqLPBShfNlgLvHKaCy6Vmnm57nCjoY9MajMxRbs6qHncGD31mZCexswKoUXuyrM1nNTac/fxWxxsbr6+J3PPpy9Z0ryiBZKQ2LF2nOpRGG0XLUrR5R5kfJ6Xjlviq9GQr7AmfyUfVISLnKROj6dnTGpXCDk9Rdjgd9M6ojCxlsRBbSIxiaX+LoWuQMWIY5Atb1EpSXYHBH6Vc5bdQs+s6ZKs17exOvKJcIPihOTG4txRFMrtogdUY8EbeaHA0m8IbCBpPJAEpRB7jPQxJkCF1A6jWiz7LdgPGHjUqEckUYDibfkxFiSibIE7VDXGyJIdzzePiljPMLuMzyMQ2XnG1GUOfD/+ggHcP9Gi1+VGE7+85tE4Z96tu1wqxfgIfHdEdntLflpVNjuDDBh/LhZbXAUkgRLceMmlQoeJVyyK1EAn7yU7Vs39jz4bpjTNA1t0GwdfjPKT5uB8V6qO/jcGuir+O7s6LtH3z367tF3R0D62r7LXmKU0+eN0qoSXVHD0Cr3VrgX0N/oPWhsysd0D3mnB7y66uNqXAKT017LbHi1XAPCJLvbZdn8BYOHWv4rDAAA");
 
 console.log(decodedJson);
 
@@ -31,7 +31,9 @@ var libraries = [
   "org.bukkit.event.Listener",
   "org.bukkit.event.EventHandler",
   "org.bukkit.plugin.java.JavaPlugin",
-  "java.util.HashMap"
+  "java.util.HashMap",
+  "java.io.IOException",
+  "com.mojang.brigadier.exceptions.CommandSyntaxException"
 ];
 libraries.push(`org.bukkit.event.player.${eventTypes[root.action]}`);
 
@@ -59,7 +61,7 @@ Spigotify(decodedJson.blocks);
 function Spigotify(thread) {
   for (let i = 1; i < thread.length; i++) {
     let codeBlock = thread[i];
-    setTimeout(function () {
+    setTimeout(function() {
       bannedBlocks = ["event", "process", "function", "entity_event"];
       if (bannedBlocks.includes(codeBlock.block)) {
         console.error(
@@ -136,8 +138,8 @@ function getCodeArgs(codeBlock) {
   let types = [];
   let slots = [];
   let tags = {};
-  for (let i = 0; i < codeBlock.args.items.length; i++) { 
-    let arg = codeBlock.args.items[i].item; 
+  for (let i = 0; i < codeBlock.args.items.length; i++) {
+    let arg = codeBlock.args.items[i].item;
     let pushType = null;
     if (arg.id != "bl_tag") {
       switch (arg.id) {
@@ -179,53 +181,53 @@ function defaultValues(args, types, slots, action) {
 
   switch (action) {
     case "SendMessage":
-      defaults = {msgs: ["§4ERR: Invalid Argument"]};
-      defaultTypes = {msgs:"txt"};
+      defaults = { msgs: ["§4ERR: Invalid Argument"] };
+      defaultTypes = { msgs: "txt" };
       break;
     case "PlaySound":
-      defaults = {sounds: [`{"sound": "Pling","pitch": 1,"vol": 2}`], location: null};
-      defaultTypes = {sounds:"snd", location: "loc"};
+      defaults = { sounds: [`{"sound": "Pling","pitch": 1,"vol": 2}`], location: null };
+      defaultTypes = { sounds: "snd", location: "loc" };
       repeating = ["snd"];
       break;
     case "PlaySoundSeq":
-      defaults = {sounds: [`{"sound": "Pling","pitch": 1,"vol": 2}`], delay: 60, location: null};
-      defaultTypes = {sounds:"snd", delay: "num", location: "loc"};
+      defaults = { sounds: [`{"sound": "Pling","pitch": 1,"vol": 2}`], delay: 60, location: null };
+      defaultTypes = { sounds: "snd", delay: "num", location: "loc" };
       repeating = ["snd"];
       break;
     case "SendMessageSeq":
-      defaults = {msgs: ["§4ERR: Invalid Argument"], delay: 60};
-      defaultTypes = {msgs:"txt", delay: "num"};
+      defaults = { msgs: ["§4ERR: Invalid Argument"], delay: 60 };
+      defaultTypes = { msgs: "txt", delay: "num" };
       repeating = ["txt"];
       break;
     case "SendTitle":
-      defaults = {title: "§4ERR: Invalid Argument",subtitle: "§cPlease review your chest arguments",duration: 60,fadeIn: 20,fadeOut: 20};
-      defaultTypes = {title: "txt", subtitle: "txt", duration: "num", fadeIn: "num", fadeOut: "num"};
+      defaults = { title: "§4ERR: Invalid Argument", subtitle: "§cPlease review your chest arguments", duration: 60, fadeIn: 20, fadeOut: 20 };
+      defaultTypes = { title: "txt", subtitle: "txt", duration: "num", fadeIn: "num", fadeOut: "num" };
       break;
     case " SetBossBar ":
-      defaults = {title: "§4ERR: Invalid Argument",health: 100,maxhealth: 100,index: 1};
-      defaultTypes = {title: "txt", health: "num", maxhealth: "num", index: "num"};
+      defaults = { title: "§4ERR: Invalid Argument", health: 100, maxhealth: 100, index: 1 };
+      defaultTypes = { title: "txt", health: "num", maxhealth: "num", index: "num" };
       break;
     case "ActionBar":
-      defaults = {msgs: ["§4ERR: Invalid Argument"]}
-      defaultTypes = {msgs: "txt"};
+      defaults = { msgs: ["§4ERR: Invalid Argument"] }
+      defaultTypes = { msgs: "txt" };
       repeating = ["txt"];
       break;
     case " RemoveBossBar ":
       defaults = { index: null };
-      defaultTypes = {index: "num"};
+      defaultTypes = { index: "num" };
       break;
     case "SendHover":
-      defaults = {msg: "§4ERR: Invalid Argument", hover: "§cPlease review your chest arguments"};
-      defaultTypes = {msg: "txt", hover: "txt"};
+      defaults = { msg: "§4ERR: Invalid Argument", hover: "§cPlease review your chest arguments" };
+      defaultTypes = { msg: "txt", hover: "txt" };
       break;
     case "SetTabListInfo":
-      defaults = {tabinfo: ["", "§4ERR: Invalid Argument", ""]};
-      defaultTypes = {tabinfo: "txt"};
+      defaults = { tabinfo: ["", "§4ERR: Invalid Argument", ""] };
+      defaultTypes = { tabinfo: "txt" };
       repeating = ["txt"];
       break;
     case "StopSound":
-      defaults = {sounds: []};
-      defaultTypes = {sounds: "snd"};
+      defaults = { sounds: [] };
+      defaultTypes = { sounds: "snd" };
       repeating = ["snd"];
       break;
     case "GiveItems":
@@ -235,20 +237,33 @@ function defaultValues(args, types, slots, action) {
         ],
         stack: 1
       };
-      defaultTypes = {items: "item", stack: "num"};
+      defaultTypes = { items: "item", stack: "num" };
       repeating = ["item"];
       break;
     case "SetHotbar":
     case "SetInventory":
-      defaults = {items: [`{Count:1b,id:"minecraft:barrier",tag:{display:{Lore:['{"extra":[{"bold":false,"italic":true,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Please review your chest arguments."}],"text":""}','{"extra":[{"bold":false,"italic":true,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"You did not put any items in the chest"}],"text":""}','{"extra":[{"bold":false,"italic":true,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"for this GiveItems action."}],"text":""}'],Name:'{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_red","text":"Error: Invalid Arguments"}],"text":""}'}}}`]};
-      defaultTypes = {items: "item"};
+      defaults = { items: [`{Count:1b,id:"minecraft:barrier",tag:{display:{Lore:['{"extra":[{"bold":false,"italic":true,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Please review your chest arguments."}],"text":""}','{"extra":[{"bold":false,"italic":true,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"You did not put any items in the chest"}],"text":""}','{"extra":[{"bold":false,"italic":true,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"for this GiveItems action."}],"text":""}'],Name:'{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_red","text":"Error: Invalid Arguments"}],"text":""}'}}}`] };
+      defaultTypes = { items: "item" };
       repeating = ["item"];
       break;
     case "SetSlotItem":
-      defaults = {item: `{Count:1b,id:"minecraft:air"}`, slot: 0};
-      defaultTypes = {item: "item", slot: "num"};
+      defaults = { item: `{Count:1b,id:"minecraft:air"}`, slot: 0 };
+      defaultTypes = { item: "item", slot: "num" };
       optionals = ["item"]; // KEY Name
       break;
+    case "SetEquipment":
+      defaults = {item:[`{Count:1b,id:"minecraft:barrier",tag:{display:{Lore:['{"extra":[{"bold":false,"italic":true,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Please review your chest arguments."}],"text":""}','{"extra":[{"bold":false,"italic":true,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"You did not put any items in the chest"}],"text":""}','{"extra":[{"bold":false,"italic":true,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"for this GiveItems action."}],"text":""}'],Name:'{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_red","text":"Error: Invalid Arguments"}],"text":""}'}}}`]};
+      defaultTypes = {item: "item"};
+      optionals = ["item"];
+      break;
+    case "SetArmor":
+      defaults = { items: [`{Count:1b,id:"minecraft:barrier",tag:{display:{Lore:['{"extra":[{"bold":false,"italic":true,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Please review your chest arguments."}],"text":""}','{"extra":[{"bold":false,"italic":true,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"You did not put any items in the chest"}],"text":""}','{"extra":[{"bold":false,"italic":true,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"for this GiveItems action."}],"text":""}'],Name:'{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_red","text":"Error: Invalid Arguments"}],"text":""}'}}}`] };
+      defaultTypes = {items: "item"};
+      repeating = ["item"];
+    case "ReplaceItems":
+      defaults = { items: [`{Count:1b,id:"minecraft:barrier",tag:{display:{Lore:['{"extra":[{"bold":false,"italic":true,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"Please review your chest arguments."}],"text":""}','{"extra":[{"bold":false,"italic":true,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"You did not put any items in the chest"}],"text":""}','{"extra":[{"bold":false,"italic":true,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"gray","text":"for this GiveItems action."}],"text":""}'],Name:'{"extra":[{"bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false,"color":"dark_red","text":"Error: Invalid Arguments"}],"text":""}'}}`], amount: 32767};
+      defaultTypes = {items: "item", amount: "num"};
+      repeating = ["item"];
   }
 
   let keys = Object.keys(defaults);
@@ -265,8 +280,8 @@ function defaultValues(args, types, slots, action) {
       continue;
     }
 
-    if(args[k] != null && types[k] == defaultTypes[keys[i]]) defaults[keys[i]] = args[k];
-    if(!(optionals.includes(keys[i]) && types[k] != defaultTypes[keys[i]])) k++;
+    if (args[k] != null && types[k] == defaultTypes[keys[i]]) defaults[keys[i]] = args[k];
+    if (!(optionals.includes(keys[i]) && types[k] != defaultTypes[keys[i]])) k++;
   }
 
   return defaults;
@@ -290,7 +305,7 @@ function addInitializer(initializer) {
   if (!code.includes(initializer)) code.splice(1, 0, initializer);
 }
 
-function nbtFormat(nbt){
+function nbtFormat(nbt) {
   doubleQuotes = new RegExp(`"`, "g");
   singleQuotes = new RegExp(`'`, "g");
   return nbt.replace(doubleQuotes, `\\"`).replace(singleQuotes, `\\'`);
@@ -306,7 +321,7 @@ function Stringify(arr) {
 
 function player_action(codeBlock) {
   let temp = getCodeArgs(codeBlock);
-  
+
   let args = temp[0];
   let slots = temp[1];
   let tags = temp[2];
@@ -441,7 +456,6 @@ function player_action(codeBlock) {
       return `setPlayerList${tags["Player List Field"]}("${headerList}")`;
     //----------------------------------END OF COMMUNICATION----------------------------------------------//
     case "GiveItems":
-      newImport(["java.io.IOException", "com.mojang.brigadier.exceptions.CommandSyntaxException"]);
       nbtArray = [];
 
       for (let i = 0; i < args["items"].length; i++) {
@@ -452,10 +466,8 @@ function player_action(codeBlock) {
       return `DFUtilities.GiveItems(${targetSyntax}, new String[] {${nbtArray}}, (byte) ${args["stack"]})`;
     //----------------------------------------------------------------------------------------------------//
     case "SetHotbar":
-      newImport(["java.io.IOException", "com.mojang.brigadier.exceptions.CommandSyntaxException", "java.util.HashMap"]);
-      
       hashmap = ["HashMap<Integer, String> hotbarItems = new HashMap<Integer, String>() {{"];
-      for(let i = 0; i < args["items"].length; i++){
+      for (let i = 0; i < args["items"].length; i++) {
         hashmap.push(`put(${slots[i]}, "${nbtFormat(args["items"][i])}");`)
       }
       hashmap.push("}};");
@@ -463,17 +475,41 @@ function player_action(codeBlock) {
       return `DFUtilities.SetItems(${targetSyntax}, hotbarItems)`
     //----------------------------------------------------------------------------------------------------//
     case "SetInventory":
-      newImport(["java.io.IOException", "com.mojang.brigadier.exceptions.CommandSyntaxException", "java.util.HashMap"]);
-      
+
       hashmap = "new HashMap<Integer, String>(){{";
-      for(let i = 0; i < args["items"].length; i++){
+      for (let i = 0; i < args["items"].length; i++) {
         hashmap += `put(${slots[i] + 9}, "${nbtFormat(args["items"][i])}");`;
       }
       hashmap += "}}";
       return `DFUtilities.SetItems(${targetSyntax}, ${hashmap})`
     //----------------------------------------------------------------------------------------------------//
     case "SetSlotItem":
-      newImport(["java.io.IOException", "com.mojang.brigadier.exceptions.CommandSyntaxException"]);
-      return `DFUtilities.SetItemInSlot(${targetSyntax}, ${args["slot"] - 1}, "${nbtFormat(args["item"])}")`
+      return `${targetSyntax}.(${args["slot"]}, DFUtilities.parseItemNBT("${nbtFormat(args["item"])}"))`
+    case "SetEquipment":
+      equipmentSlots = {
+        "Main hand": "HAND",
+        "Off hand": "OFF_HAND",
+        "Head": "HEAD",
+        "Chest": "CHEST",
+        "Legs": "LEGS",
+        "Feet": "FEET"
+      };
+
+      return `${targetSyntax}.getInventory().setItem(EquipmentSlot.${equipmentSlots[tags["Equipment Slot"]]}, DFUtilities.parseItemNBT("${nbtFormat(args["item"])}"))`;
+    case "SetArmor":
+      slotsMap = [40, 39, 38, 37];
+      result = [];
+      for(let i = 0; i < args["items"].length; i++){
+         result.push(`${targetSyntax}.getInventory().setItem(${slotsMap[slots[i]]}, DFUtilities.parseItemNBT("${nbtFormat(args["items"][i])}"))`);
+      }
+      return result;
+    case "ReplaceItems":
+      replaceables = [];
+      replaceItem = args["items"].pop();
+      for(let i = 0; i < args["items"].length; i++){
+        replaceables.push(`"${nbtFormat(args["items"][i])}"`);
+      }
+
+      return `DFUtilities.ReplaceItems(${targetSyntax}, new String[] {${replaceables}}, DFUtilities.parseItemNBT("${nbtFormat(replaceItem)}"), (short) ${args["amount"]})`
   }
 }
