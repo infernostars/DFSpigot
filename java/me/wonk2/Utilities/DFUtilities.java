@@ -62,7 +62,7 @@ public class DFUtilities {
             put("Amethyst Block Step", "block.amethyst_block.step");
             put("Amethyst Cluster Break", "block.amethyst_cluster.break");
             put("Amethyst Cluster Fall", "block.amethyst_cluster.fall");
-            // Add other cluster break here
+            put("Amethyst Cluster Hit", "block.amethyst_cluster.hit");
             put("Amethyst Cluster Place", "block.amethyst_cluster.place");
             put("Amethyst Cluster Step", "block.amethyst_cluster.step");
             put("Large Amethyst Bud Break", "block.large_amethyst_bud.break");
@@ -767,6 +767,16 @@ public class DFUtilities {
             for(int j = 0; j < items.length; j++){
                 if(invContents[i].isSimilar(parseItemNBT(items[j]))) p.getInventory().clear(i);
             }
+        }
+    }
+
+    public static void ClearInv(Player p, int min, int max, boolean clearCrafting){
+        for(int i = min; i < max; i++){
+            p.getInventory().clear(i);
+        }
+        if(clearCrafting){
+            p.setItemOnCursor(null);
+            //TODO: Clear crafting slots
         }
     }
 }
