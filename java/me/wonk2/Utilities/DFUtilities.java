@@ -754,6 +754,12 @@ public class DFUtilities {
 
         }
     }
+
+    public static void RemoveItems(Player p, String[] items) throws IOException, CommandSyntaxException {
+        for(int i = 0; i < items.length; i++){
+            p.getInventory().removeItem(parseItemNBT(items[i]));
+        }
+    }
 }
 
 
