@@ -760,6 +760,15 @@ public class DFUtilities {
             p.getInventory().removeItem(parseItemNBT(items[i]));
         }
     }
+
+    public static void ClearItems(Player p, String[] items) throws IOException, CommandSyntaxException{
+        ItemStack[] invContents = p.getInventory().getContents();
+        for(int i = 0; i < invContents.length; i++){
+            for(int j = 0; j < items.length; j++){
+                if(invContents[i].isSimilar(parseItemNBT(items[j]))) p.getInventory().clear(i);
+            }
+        }
+    }
 }
 
 
