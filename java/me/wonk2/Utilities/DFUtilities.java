@@ -704,7 +704,7 @@ public class DFUtilities {
         return result;
     }
 
-    public static void GiveItems(Player p, String[] items, byte stack) throws IOException, CommandSyntaxException {
+    public static void giveItems(Player p, String[] items, byte stack) throws IOException, CommandSyntaxException {
         for(int i = 0; i < items.length; i++){
             for(int k = 0; k < stack; k++){
                 p.getInventory().addItem(parseItemNBT(items[i]));
@@ -712,7 +712,7 @@ public class DFUtilities {
         }
     }
 
-    public static void SetItems(Player p, HashMap<Integer, String> items) throws IOException, CommandSyntaxException{
+    public static void setItems(Player p, HashMap<Integer, String> items) throws IOException, CommandSyntaxException{
             items.forEach((slot, item) -> {
                     try {
                         p.getInventory().setItem(slot, parseItemNBT(item));
@@ -724,7 +724,7 @@ public class DFUtilities {
             });
     }
 
-    public static void ReplaceItems(Player p, String[] replaceablesRaw, ItemStack replaceItem, short amount) throws IOException, CommandSyntaxException {
+    public static void replaceItems(Player p, String[] replaceablesRaw, ItemStack replaceItem, short amount) throws IOException, CommandSyntaxException {
         ItemStack[] items = p.getInventory().getContents();
         ItemStack[] replaceables = new ItemStack[replaceablesRaw.length];
         ItemStack removalItem;
@@ -755,13 +755,13 @@ public class DFUtilities {
         }
     }
 
-    public static void RemoveItems(Player p, String[] items) throws IOException, CommandSyntaxException {
+    public static void removeItems(Player p, String[] items) throws IOException, CommandSyntaxException {
         for(int i = 0; i < items.length; i++){
             p.getInventory().removeItem(parseItemNBT(items[i]));
         }
     }
 
-    public static void ClearItems(Player p, String[] items) throws IOException, CommandSyntaxException{
+    public static void clearItems(Player p, String[] items) throws IOException, CommandSyntaxException{
         ItemStack[] invContents = p.getInventory().getContents();
         for(int i = 0; i < invContents.length; i++){
             for(int j = 0; j < items.length; j++){
@@ -770,7 +770,7 @@ public class DFUtilities {
         }
     }
 
-    public static void ClearInv(Player p, int min, int max, boolean clearCrafting){
+    public static void clearInv(Player p, int min, int max, boolean clearCrafting){
         for(int i = min; i < max; i++){
             p.getInventory().clear(i);
         }
